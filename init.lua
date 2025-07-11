@@ -1,9 +1,3 @@
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
-vim.cmd("set relativenumber")
-vim.g.mapleader = " "
 
 -- install lazy.nvim plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -24,19 +18,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- load plugins with lazy
-local plugins = {
-  { "catppuccin/nvim", name ="catppuccin", priority = 1000 },
-  {"nvim-telescope/telescope.nvim", tag = '0.1.8', dependencies = {"nvim-lua/plenary.nvim"}}
-}
 local opt = {}
 
-require("lazy").setup(plugins, opts)
--- telescope settings
-local builtin = require("telescope.builtin")
-vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-
--- init catpuccin plugin and set it
-require("catppuccin").setup()
-vim.cmd.colorscheme "catppuccin"
-
+require("options")
+require("lazy").setup("plugins")

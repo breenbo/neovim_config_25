@@ -1,0 +1,11 @@
+vim.cmd("set showmatch")
+vim.cmd("set hlsearch")
+vim.cmd("set incsearch")
+vim.cmd("set autoindent")
+vim.cmd("set cc=80")
+vim.cmd("set expandtab")
+vim.cmd("set tabstop=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set shiftwidth=2")
+vim.cmd("set relativenumber")
+vim.g.mapleader = " "

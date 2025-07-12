@@ -27,7 +27,13 @@ return {
 	{
 		"ibhagwan/fzf-lua",
 		dependencies = { "echasnovski/mini.icons" },
-		opts = {},
+		opts = function()
+			local keymap = require("fzf-lua").config.defaults.keymap
+			-- send resutls to quickfix
+			keymap.fzf["ctrl-q"] = "select-all+accept"
+			keymap.fzf["ctrl-u"] = "half-page-up"
+			keymap.fzf["ctrl-d"] = "half-page-down"
+		end,
 		keys = {
 			{
 				"<leader>fb",

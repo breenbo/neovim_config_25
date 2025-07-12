@@ -1,7 +1,11 @@
 vim.o.relativenumber = true
 vim.o.showmode = false
 vim.o.colorcolumn = "80"
-vim.o.tabstop = 4
+
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
 
 -- Enable break indent
 vim.o.breakindent = true

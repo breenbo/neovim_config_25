@@ -376,7 +376,7 @@ return {
         },
         -- LSP
         {
-            "ca",
+            "<leader>ca",
             function()
                 vim.lsp.buf.code_action()
             end,
@@ -411,21 +411,21 @@ return {
             desc = "Open diagnostics list",
         },
         {
-            "gd",
+            "<leader>cd",
             function()
                 Snacks.picker.lsp_definitions()
             end,
             desc = "Goto Definition",
         },
         {
-            "gD",
+            "<leader>cD",
             function()
                 Snacks.picker.lsp_declarations()
             end,
             desc = "Goto Declaration",
         },
         {
-            "gr",
+            "<leader>cr",
             function()
                 Snacks.picker.lsp_references()
             end,
@@ -433,34 +433,43 @@ return {
             desc = "References",
         },
         {
-            "gI",
+            "<leader>cI",
             function()
                 Snacks.picker.lsp_implementations()
             end,
             desc = "Goto Implementation",
         },
         {
-            "gy",
+            "<leader>cy",
             function()
                 Snacks.picker.lsp_type_definitions()
             end,
             desc = "Goto T[y]pe Definition",
         },
         {
-            "<leader>ss",
+            "<leader>cs",
             function()
                 Snacks.picker.lsp_symbols()
             end,
             desc = "LSP Symbols",
         },
         {
-            "<leader>sS",
+            "<leader>cS",
             function()
                 Snacks.picker.lsp_workspace_symbols()
             end,
             desc = "LSP Workspace Symbols",
         },
+        {
+            "<leader>cR",
+            function()
+                Snacks.rename.rename_file()
+            end,
+            desc = "Rename File",
+        },
+        --
         -- Other
+        --
         {
             "<leader>z",
             function()
@@ -504,13 +513,6 @@ return {
             desc = "Delete Buffer",
         },
         {
-            "<leader>cR",
-            function()
-                Snacks.rename.rename_file()
-            end,
-            desc = "Rename File",
-        },
-        {
             "<leader>gB",
             function()
                 Snacks.gitbrowse()
@@ -544,7 +546,7 @@ return {
             function()
                 Snacks.terminal()
             end,
-            desc = "which_key_ignore",
+            desc = "Open terminal",
         },
         {
             "]]",

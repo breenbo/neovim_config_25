@@ -8,7 +8,6 @@ return {
         opts = {
             ensure_installed = {
                 "lua_ls",
-                "rust_analyzer",
             },
         },
     },
@@ -162,7 +161,8 @@ return {
             --  By default, Neovim doesn't support everything that is in the LSP specification.
             --  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
             --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
-            local capabilities = require("blink.cmp").get_lsp_capabilities()
+            local original_capabilities = vim.lsp.protocol.make_client_capabilities()
+            local capabilities = require("blink.cmp").get_lsp_capabilities(original_capabilities)
 
             -- Enable the following language servers
             --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -175,7 +175,9 @@ return {
             --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
             local servers = {
                 bashls = {},
-                rust_analyzer = {},
+                -- DO NOT NEVER EVER ENABLE rust_analyzer by MASON AS IT CAUSE ISSUES. KEEP RUSTUP VERSION.
+                -- rust_analyzer = {},
+                --
                 -- clangd = {},
                 -- gopls = {},
                 -- pyright = {},
@@ -221,7 +223,6 @@ return {
             vim.list_extend(ensure_installed, {
                 "stylua", -- Used to format Lua code
                 "prettierd", -- format js, ts code
-                "rustfmt",
             })
             require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

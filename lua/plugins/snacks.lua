@@ -376,6 +376,13 @@ return {
         },
         -- LSP
         {
+            "ca",
+            function()
+                vim.lsp.buf.code_action()
+            end,
+            desc = "Code action",
+        },
+        {
             "gd",
             function()
                 Snacks.picker.lsp_definitions()

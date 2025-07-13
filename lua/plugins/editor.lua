@@ -5,3 +5,4 @@ return {
         require("mini.pairs").setup()
     end,
 }
+-- TODO: add some stuff

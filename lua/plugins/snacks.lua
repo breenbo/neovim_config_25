@@ -383,6 +383,34 @@ return {
             desc = "Code action",
         },
         {
+            "<leader>cp",
+            function()
+                vim.diagnostic.goto_prev()
+            end,
+            desc = "Go to previous diagnostic message",
+        },
+        {
+            "<leader>cn",
+            function()
+                vim.diagnostic.goto_next()
+            end,
+            desc = "Go to next diagnostic message",
+        },
+        {
+            "<leader>ce",
+            function()
+                vim.diagnostic.open_float()
+            end,
+            desc = "Open floating diagnostic message",
+        },
+        {
+            "<leader>cq",
+            function()
+                vim.diagnostic.setloclist()
+            end,
+            desc = "Open diagnostics list",
+        },
+        {
             "gd",
             function()
                 Snacks.picker.lsp_definitions()

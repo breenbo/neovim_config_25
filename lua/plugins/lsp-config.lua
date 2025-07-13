@@ -162,6 +162,7 @@ return {
             --  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
             --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
             local original_capabilities = vim.lsp.protocol.make_client_capabilities()
+            -- add lsp completion to blink
             local capabilities = require("blink.cmp").get_lsp_capabilities(original_capabilities)
 
             -- Enable the following language servers

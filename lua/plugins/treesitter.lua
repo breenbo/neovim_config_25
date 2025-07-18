@@ -12,6 +12,7 @@ return {
                     "lua",
                     "vue",
                     "javascript",
+                    "json5",
                     "typescript",
                     "rust",
                     "typst",

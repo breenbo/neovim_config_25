@@ -105,7 +105,8 @@ return {
 
             vim.lsp.config("vtsls", vtsls_config)
             vim.lsp.config("vue_ls", vue_ls_config)
-            vim.lsp.enable({ "vtsls", "vue_ls" })
+            vim.lsp.config("tailwindcss", {})
+            vim.lsp.enable({ "vtsls", "vue_ls", "tailwindcss" })
 
             -- nvim 0.11 or above
             vim.lsp.inlay_hint.enable(true)

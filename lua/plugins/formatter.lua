@@ -10,6 +10,7 @@ return {
             -- Conform will run the first available formatter
             javascript = { "prettierd", "prettier", stop_after_first = true },
             typescript = { "prettierd", "prettier", stop_after_first = true },
+            vue = { "prettierd", "prettier", stop_after_first = true },
         },
         -- go to fallback on lsp format after timeout
         format_on_save = {

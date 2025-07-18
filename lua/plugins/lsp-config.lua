@@ -52,6 +52,7 @@ return {
                 configNamespace = "typescript",
             }
             local vtsls_config = {
+                capabilities = capabilities,
                 settings = {
                     vtsls = {
                         tsserver = {
@@ -65,6 +66,7 @@ return {
             }
 
             local vue_ls_config = {
+                capabilities = capabilities,
                 init_options = {
                     typescript = {
                         serverPath = vim.fn.expand("$MASON/packages")
@@ -100,6 +102,11 @@ return {
                     end
                 end,
             }
+
+            vim.lsp.config("vtsls", vtsls_config)
+            vim.lsp.config("vue_ls", vue_ls_config)
+            vim.lsp.enable({ "vtsls", "vue_ls" })
+
             -- nvim 0.11 or above
             vim.lsp.inlay_hint.enable(true)
             vim.diagnostic.config({
@@ -119,10 +126,6 @@ return {
                     },
                 },
             })
-
-            vim.lsp.config("vtsls", vtsls_config)
-            vim.lsp.config("vue_ls", vue_ls_config)
-            vim.lsp.enable({ "vtsls", "vue_ls" })
         end,
     },
 }

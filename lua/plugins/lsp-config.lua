@@ -1,11 +1,46 @@
 return {
     {
         "mason-org/mason.nvim",
-        opts = {},
+        opts = {
+            ui = {
+                icons = {
+                    package_installed = "✓",
+                    package_pending = "➜",
+                    package_uninstalled = "✗",
+                },
+            },
+        },
     },
     {
         "mason-org/mason-lspconfig.nvim",
         opts = {},
+    },
+    {
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
+        opts = {
+            ensure_installed = {
+                -- LSP servers (handled by mason-lspconfig, but included for completeness)
+                "lua_ls",
+                "bashls",
+                "vtsls",
+                "vue_ls",
+                "tailwindcss",
+                "html",
+                "cssls",
+                "jsonls",
+                -- Formatters
+                "stylua", -- Lua
+                "prettierd", -- JS/TS/Vue/HTML/CSS/JSON/YAML/Markdown
+                "shfmt", -- Shell
+                -- Linters
+                "shellcheck", -- Shell
+                "eslint_d", -- JS/TS
+                "luacheck", -- Lua
+                "jsonlint",
+            },
+            auto_update = true,
+            run_on_start = true,
+        },
     },
     {
         -- Main LSP Configuration
@@ -35,6 +70,10 @@ return {
                 capabilities = capabilities,
             })
             vim.lsp.enable("bash_ls")
+            vim.lsp.config("jsonls", {
+                capabilities = capabilities,
+            })
+            vim.lsp.enable("jsonls")
             -- If you are using mason.nvim, you can get the ts_plugin_path like this
             -- For Mason v1,
             -- local mason_registry = require('mason-registry')

@@ -50,7 +50,7 @@ return {
         -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
         --
         -- See the fuzzy documentation for more information
-        fuzzy = { implementation = "rust", prebuilt_binaries = { donwload = true, force_version = "v1.4.1" } },
+        fuzzy = { implementation = "rust", prebuilt_binaries = { download = true, force_version = "v1.4.1" } },
     },
     opts_extend = { "sources.default" },
 }

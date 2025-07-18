@@ -74,16 +74,11 @@ return {
                 capabilities = capabilities,
             })
             vim.lsp.enable("jsonls")
-            -- If you are using mason.nvim, you can get the ts_plugin_path like this
-            -- For Mason v1,
-            -- local mason_registry = require('mason-registry')
-            -- local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
-            -- For Mason v2,
+
             local vue_language_server_path = vim.fn.expand("$MASON/packages")
                 .. "/vue-language-server"
                 .. "/node_modules/@vue/language-server"
-            -- or even
-            -- local vue_language_server_path = vim.fn.stdpath('data') .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
+
             local vue_plugin = {
                 name = "@vue/typescript-plugin",
                 location = vue_language_server_path,
@@ -127,7 +122,7 @@ return {
                         local param = unpack(result)
                         local id, command, payload = unpack(param)
                         ts_client:exec_cmd({
-                            title = "vue_request_forward", -- You can give title anything as it's used to represent a command in the UI, `:h Client:exec_cmd`
+                            title = "vue_request_forward",
                             command = "typescript.tsserverRequest",
                             arguments = {
                                 command,
@@ -151,7 +146,8 @@ return {
             vim.lsp.inlay_hint.enable(true)
             vim.diagnostic.config({
                 -- virtual_lines = true,
-                virtual_text = true,
+                -- diagnostic with tiny inline diag
+                virtual_text = false,
                 underline = true,
                 update_in_insert = false,
                 severity_sort = true,
@@ -166,6 +162,14 @@ return {
                     },
                 },
             })
+        end,
+    },
+    {
+        "rachartier/tiny-inline-diagnostic.nvim",
+        event = "VeryLazy", -- Or `LspAttach`
+        priority = 1000, -- needs to be loaded in first
+        config = function()
+            require("tiny-inline-diagnostic").setup()
         end,
     },
 }

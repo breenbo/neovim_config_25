@@ -61,6 +61,25 @@ return {
         },
         config = function()
             local capabilities = require("blink.cmp").get_lsp_capabilities()
+            vim.lsp.config("rust-analyzer", {
+                capabilities = capabilities,
+                cmd = { "rust-analyzer" }, -- Use system rust-analyzer
+                settings = {
+                    ["rust-analyzer"] = {
+                        cargo = {
+                            allFeatures = true,
+                        },
+                        procMacro = {
+                            enable = true,
+                        },
+                        diagnostics = {
+                            enable = true,
+                        },
+                    },
+                },
+            })
+            vim.lsp.enable("rust-analyzer")
+
             vim.lsp.config("lua_ls", {
                 capabilities = capabilities,
             })

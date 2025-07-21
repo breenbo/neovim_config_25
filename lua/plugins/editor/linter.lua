@@ -13,7 +13,7 @@ return {
             -- TypeScript
             typescript = { "eslint_d" },
             -- Rust
-            rust = { "clippy" },
+            -- rust = { "clippy" },
             -- Lua
             lua = { "luacheck" },
             -- Bash/Shell
